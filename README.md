@@ -26,11 +26,11 @@ Here is the recommended method for configuring your environment:
 
 Bash
 
-# 1. Create and activate a new conda environment named Qiskit1
+## 1. Create and activate a new conda environment named Qiskit1
 conda create -n Qiskit1 python==3.12
 conda activate Qiskit1
 
-# 2. Install the required packages using pip
+## 2. Install the required packages using pip
 pip install qiskit==1.2
 pip install qiskit-algorithms==0.3.0
 pip install qiskit-aer==0.15.0
