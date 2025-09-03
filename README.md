@@ -10,40 +10,84 @@ All the raw and processed data used to generate the figures in the publication.
 
 The scripts required to reproduce every figure from the paper.
 
-# Prerequisites
+This repository contains all the scripts required to reproduce every figure from our paper.
 
-If you want to generate the classical computational chemistry results and Hamiltonians, you will need the following environment:
+Overview
 
-pyscf and openferimion
+To fully reproduce all the results in this paper, two separate computational environments are required:
 
-For quantum computational chemistry calculations, this project relies on qiskit. For SDP (Semidefinite Programming) calculations, it uses cvxpy.
+Data Generation Environment: Used for classical computational chemistry simulations and generating Hamiltonians. This environment relies on an older version of Qiskit.
 
-# Installation
+Analysis and Plotting Environment: Used for running quantum computational chemistry calculations, SDP (Semidefinite Programming) calculations, and generating the final figures. This environment uses a newer version of Qiskit and its related libraries.
 
-We strongly recommend creating a dedicated conda environment to ensure all dependencies are handled correctly.
+We strongly recommend using conda to create separate virtual environments to avoid package version conflicts.
 
-Here is the recommended method for configuring your environment:
+1. Data Generation Environment Setup
+This environment is used to generate the initial quantum chemistry computational data.
 
-## 1. Create and activate a new conda environment named Qiskit1
-conda create -n Qiskit1 python==3.12
+Prerequisites:
 
-conda activate Qiskit1
+pyscf==2.2.1
 
-## 2. Install the required packages using pip
+openfermion
+
+openfermion-psi4==0.4
+
+qiskit==0.39.2
+
+Installation (macOS / Linux):
+
+# 1. Create a new conda environment
+conda create -n Qiskit039 python==3.10
+
+# 2. Activate the environment
+conda activate Qiskit039
+
+# 3. Install the required packages
+pip install pyscf==2.2.1
+pip install openfermion
+pip install openfermion-psi4==0.4
+pip install qiskit==0.39.2
+
+2. Analysis and Plotting Environment Setup
+This environment is used to process the generated data, run SDP calculations, and plot all the figures in the paper.
+
+Prerequisites:
+
+qiskit==1.2
+
+qiskit-algorithms
+
+qiskit-aer
+
+qiskit-nature
+
+cvxpy
+
+and other auxiliary libraries
+
+Installation (macOS / Linux):
+
+# 1. Create a new conda environment
+conda create -n PaperAnalysis python==3.12
+
+# 2. Activate the environment
+conda activate PaperAnalysis
+
+# 3. Install all required packages using pip
 pip install qiskit==1.2
-
 pip install qiskit-algorithms==0.3.0
-
 pip install qiskit-aer==0.15.0
-
-pip install joblib
-
-pip install cvxpy
-
-pip install scipy
-
 pip install qiskit-nature
-
+pip install openfermion
+pip install cvxpy
+pip install joblib
+pip install scipy
 pip install pandas
 
-pip install openfermion
+How to Reproduce
+First, activate the Data Generation Environment (conda activate Qiskit039) and run the relevant scripts to generate the raw data.
+
+Next, activate the Analysis and Plotting Environment (conda activate PaperAnalysis) and run the analysis and plotting scripts to process the data and generate the final figures.
+
+Happy reproducing! If you encounter any problems, please feel free to open an issue.
