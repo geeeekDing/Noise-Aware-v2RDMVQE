@@ -43,6 +43,9 @@ pip install qiskit==0.39.2
 pip install openfermion-psi4==0.4
 
 pip install openfermion==1.7.1
+conda install -c conda-forge pyscf
+
+or
 pip install cmake (if need)
 pip install pyscf==2.2.1
 ```
